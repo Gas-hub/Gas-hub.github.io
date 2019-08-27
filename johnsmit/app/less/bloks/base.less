@@ -1,0 +1,101 @@
+body{
+    
+}
+
+
+.preloader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #151515;
+	z-index: 100;
+}
+
+.pulse{
+	position: relative;
+	left: 50%;
+	top: 50vh;
+	margin-left: -40px;
+	margin-top: -40px;
+}	
+
+
+	.pulse:before, .pulse:after{
+		content: '';
+		border: 5px solid #323232;
+		width: 80px;
+		height: 80px;
+		border-radius: 500px;
+		position: absolute;
+
+	}
+
+
+	.pulse:before{
+		animation: pulse-outer .8s ease-in infinite
+	}
+	.pulse:after{
+		animation: pulse-inner .8s linear infinite
+	}
+
+@keyframes pulse-outer{
+	0%{
+		@include opacity(100);
+	}
+	50%{
+		@include opacity(50);
+	}
+	100%{
+		@include opacity(0);
+	}
+
+}
+
+@keyframes pulse-inner{
+	0%{
+		transform: scale(0);
+		@include opacity(0);
+	}
+	100%{
+		transform: scale(1);
+		@include opacity(100);}
+}
+a:hover{
+	text-decoration: none;
+}
+
+.top{
+	position: fixed;
+	bottom: 25px;
+	right: -100px;
+	background-color: #a21af0;
+	z-index: 12;
+	border-radius: 10em;
+	color: #ff0072;
+	font-size: 35px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+	transition: all .3s ease;
+	opacity: .5;
+	}
+	.top:hover{
+		color: #a21af0;
+		background-color: #ff0072;
+		opacity: 1;
+
+	}
+	.top.active{
+		right: 25px;
+	}
+
+.container{
+    max-width: 1200px;
+    padding: 0 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
